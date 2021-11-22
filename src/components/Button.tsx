@@ -1,5 +1,4 @@
-import { CSSProperties } from "react";
-import { css, styled } from "@stitches/react";
+import { styled } from "@stitches/react";
 
 type Props = {
   children?: string;
