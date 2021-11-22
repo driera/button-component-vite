@@ -14,6 +14,7 @@ const App = (): JSX.Element => {
   return (
     <div style={styles.container}>
       <h1>Button component</h1>
+      <p>&lt;Button /&gt;</p>
       <Button />
     </div>
   );
