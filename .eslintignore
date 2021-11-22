@@ -1,0 +1,10 @@
+node_modules/
+
+# Ignore artifacts:
+build/
+coverage/
+dist/
+public/
+
+jest.config.js
+postcss.config.js
