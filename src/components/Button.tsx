@@ -14,24 +14,20 @@ const StyledButton = styled("button", {
   boxShadow: "2px 2px 2px #00000022",
   borderRadius: "8px",
   background: "#E0E0E0",
-  transition: "background 0.15s ease-in"
+  transition: "background 0.15s ease-in",
+  "&:hover": {
+    background: "#AEAEAE"
+  },
+  "&:focus": {
+    outline: "1px solid #AEAEAE"
+  }
 });
 
 const Button = ({
   children = "Button",
   is = "default"
 }: Props): JSX.Element => {
-  return (
-    <StyledButton
-      css={{
-        "&:hover": {
-          background: "#AEAEAE"
-        }
-      }}
-    >
-      {children}
-    </StyledButton>
-  );
+  return <StyledButton>{children}</StyledButton>;
 };
 
 export default Button;
