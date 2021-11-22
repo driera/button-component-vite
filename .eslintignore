@@ -7,4 +7,3 @@ dist/
 public/
 
 jest.config.js
-postcss.config.js

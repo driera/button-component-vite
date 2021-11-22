@@ -7,29 +7,30 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [legacy(), reactRefresh()],
   esbuild: {
-    jsxInject: `import React from 'react'`, // automatically import React in jsx files
+    jsxInject: `import React from 'react'` // automatically import React in jsx files
   },
   resolve: {
     alias: [
       {
         // for import like : @/x/y/z
         find: /@\//,
-        replacement: `${path.resolve(__dirname, "src")}/`,
+        replacement: `${path.resolve(__dirname, "src")}/`
       },
       {
         // for import like : ~x/y/z
         find: /~(.*)/,
-        replacement: `${path.resolve(__dirname, "node_modules")}/$1`,
-      },
-    ],
+        replacement: `${path.resolve(__dirname, "node_modules")}/$1`
+      }
+    ]
   },
   server: {
+    port: 3001,
     proxy: {
       "/api": {
         target: "http://localhost:8080",
         secure: false,
-        rewrite: path => path.replace(/^\/api/, ""),
-      },
-    },
-  },
+        rewrite: (path) => path.replace(/^\/api/, "")
+      }
+    }
+  }
 });
