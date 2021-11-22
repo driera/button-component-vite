@@ -14,7 +14,7 @@
     "test:watch": "jest --watch",
     "test:e2e": "cypress open",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" && git update-index --again",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
+    "lint": "eslint --cache -f table --ext .js,.ts,.tsx src",
     "prepare": "husky install"
   },
   "dependencies": {
