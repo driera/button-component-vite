@@ -29,4 +29,13 @@ describe("button", () => {
       border: "none"
     });
   });
+
+  it("can disable the box shadow", () => {
+    render(<Button disableShadow />);
+
+    const defaultButton = screen.getByRole("button", { name: /button/i });
+    expect(defaultButton).toHaveStyle({
+      boxShadow: "none"
+    });
+  });
 });

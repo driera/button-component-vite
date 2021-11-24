@@ -2,13 +2,15 @@ import styled from "styled-components";
 
 const primary_color = "#0067F9";
 
-const BaseButton = styled.button((props) => ({
+type BaseButtonProps = { disableShadow?: boolean };
+
+const BaseButton = styled.button(({ disableShadow }: BaseButtonProps) => ({
   display: "block",
   padding: "16px 32px",
   border: "none",
   fontSize: "18px",
   color: "#222222",
-  boxShadow: "2px 2px 2px #00000022",
+  boxShadow: disableShadow ? "none" : "2px 2px 2px #00000022",
   borderRadius: "8px",
   transition: "background 0.15s ease-in",
   outline: "none"
@@ -46,12 +48,23 @@ const TextButton = styled(BaseButton)({
 type Props = {
   children?: string;
   variant?: "outline" | "text" | undefined;
+  disableShadow?: boolean;
 };
 
-const Button = ({ children = "Button", variant }: Props): JSX.Element => {
-  if (variant === "outline") return <OutlineButton>{children}</OutlineButton>;
-  if (variant === "text") return <TextButton>{children}</TextButton>;
-  return <DefaultButton>{children}</DefaultButton>;
+const Button = ({
+  children = "Button",
+  variant,
+  disableShadow = false
+}: Props): JSX.Element => {
+  if (variant === "outline") {
+    return <OutlineButton>{children}</OutlineButton>;
+  }
+  if (variant === "text") {
+    return <TextButton>{children}</TextButton>;
+  }
+  return (
+    <DefaultButton disableShadow={disableShadow}>{children}</DefaultButton>
+  );
 };
 
 export default Button;
