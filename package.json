@@ -14,8 +14,7 @@
     "test-watch": "jest --watch",
     "test-e2e": "cypress open",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" && git update-index --again",
-    "lint": "eslint --cache -f table --ext .js,.ts,.tsx src",
-    "prepare": "husky install"
+    "lint": "eslint --cache -f table --ext .js,.ts,.tsx src"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -53,7 +52,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-testing-library": "^4.12.0",
-    "husky": "^7.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
     "postcss": "^8.3.11",
