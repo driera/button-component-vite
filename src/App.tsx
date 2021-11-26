@@ -33,6 +33,10 @@ const App = (): JSX.Element => {
         <Text>{"<Button disableShadow />"}</Text>
         <Button disableShadow />
       </div>
+      <div>
+        <Text>{"<Button disabled />"}</Text>
+        <Button disabled />
+      </div>
     </Container>
   );
 };

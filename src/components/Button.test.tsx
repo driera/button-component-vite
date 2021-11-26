@@ -38,4 +38,11 @@ describe("button", () => {
       boxShadow: "none"
     });
   });
+
+  it("can be disabled", () => {
+    render(<Button disabled />);
+
+    const defaultButton = screen.getByRole("button", { name: /button/i });
+    expect(defaultButton).toBeDisabled();
+  });
 });
