@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import { styled } from "@stitches/react";
+import globalStyles from "./theme/globalStyles";
 
 const Container = styled("div", {
   display: "grid",
@@ -14,6 +15,8 @@ const Text = styled("p", {
 });
 
 const App = (): JSX.Element => {
+  globalStyles();
+
   return (
     <Container>
       <h1>Button component</h1>
