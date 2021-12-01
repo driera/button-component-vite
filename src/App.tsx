@@ -1,7 +1,7 @@
 import Button from "@/components/Button";
-import styled from "styled-components";
+import { styled } from "@stitches/react";
 
-const Container = styled.div({
+const Container = styled("div", {
   display: "grid",
   alignItems: "center",
   justifyItems: "flex-start",
@@ -9,7 +9,7 @@ const Container = styled.div({
   gap: 80
 });
 
-const Text = styled.p({
+const Text = styled("p", {
   marginBottom: "1.5em"
 });
 
