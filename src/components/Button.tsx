@@ -1,36 +1,28 @@
-import { styled } from "@stitches/react";
-
-const primary_color = "#0067F9";
-const gray_color = {
-  darkest: "#222222",
-  medium: "#9E9E9E",
-  light: "#AEAEAE",
-  lighter: "#E0E0E0"
-} as const;
+import { styled } from "../theme";
 
 const BaseButton = styled("button", {
   display: "block",
   padding: "16px 32px",
   border: "none",
   fontSize: "18px",
-  color: gray_color.darkest,
+  color: "$gray_darkest",
   borderRadius: "8px",
   transition: "background 0.15s ease-in",
   outline: "none",
 
   "&[disabled]": {
-    color: gray_color.medium,
+    color: "$gray_medium",
     cursor: "not-allowed"
   }
 });
 
 const DefaultButton = styled(BaseButton, {
   boxShadow: "2px 2px 2px #00000022",
-  background: gray_color.lighter,
+  background: "$gray_lighter",
 
   "&:hover, &:focus": {
     "&:not([disabled])": {
-      background: gray_color.light
+      background: "$gray_light"
     }
   },
 
@@ -44,7 +36,7 @@ const DefaultButton = styled(BaseButton, {
 });
 
 const TextButton = styled(BaseButton, {
-  color: primary_color,
+  color: "$primary",
   background: "transparent",
 
   "&:hover, &:focus": {
@@ -65,7 +57,7 @@ const TextButton = styled(BaseButton, {
 });
 
 const OutlineButton = styled(TextButton, {
-  border: `2px solid ${primary_color}`,
+  border: `2px solid $primary`,
 
   "&:disabled": {
     border: "none"
