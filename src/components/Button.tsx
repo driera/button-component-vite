@@ -16,6 +16,7 @@ const BaseButton = styled("button", {
 
   "&[disabled]": {
     color: "$gray_medium",
+    background: "$gray_lighter",
     cursor: "not-allowed"
   },
 
@@ -41,36 +42,104 @@ const BaseButton = styled("button", {
 
 const DefaultButton = styled(BaseButton, {
   boxShadow: "2px 2px 2px #00000022",
-  background: "$gray_lighter",
-
-  "&:hover, &:focus": {
-    "&:not([disabled])": {
-      background: "$gray_light"
-    }
-  },
 
   variants: {
     disableShadow: {
       true: {
         boxShadow: "none"
       }
+    },
+    color: {
+      default: {
+        background: "$gray_lighter",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$gray_light"
+          }
+        }
+      },
+      primary: {
+        color: "$light",
+        background: "$primary",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$primary_dark"
+          }
+        }
+      },
+      secondary: {
+        color: "$light",
+        background: "$secondary",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$secondary_dark"
+          }
+        }
+      },
+      danger: {
+        color: "$light",
+        background: "$danger",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$danger_dark"
+          }
+        }
+      }
     }
   }
 });
 
 const TextButton = styled(BaseButton, {
-  color: "$primary",
   background: "transparent",
 
-  "&:hover, &:focus": {
-    "&:not([disabled])": {
-      background: "#0067F933"
+  variants: {
+    color: {
+      default: {
+        color: "$gray_darkest",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$gray_transparent"
+          }
+        }
+      },
+      primary: {
+        color: "$primary",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$primary_transparent"
+          }
+        }
+      },
+      secondary: {
+        color: "$secondary",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$secondary_transparent"
+          }
+        }
+      },
+      danger: {
+        color: "$danger",
+
+        "&:hover, &:focus": {
+          "&:not([disabled])": {
+            background: "$danger_transparent"
+          }
+        }
+      }
     }
   }
 });
 
 const OutlineButton = styled(TextButton, {
-  border: `2px solid $primary`,
+  border: `2px solid currentColor`,
 
   "&:disabled": {
     border: "none"
@@ -85,6 +154,7 @@ type Props = {
   startIcon?: keyof IconsLibrary;
   endIcon?: keyof IconsLibrary;
   size?: "sm" | "md" | "lg";
+  color?: "default" | "primary" | "secondary" | "danger";
 };
 
 const Button = ({
@@ -94,11 +164,12 @@ const Button = ({
   disabled = false,
   startIcon,
   endIcon,
-  size = "md"
+  size = "md",
+  color = "default"
 }: Props): JSX.Element => {
   if (variant === "text") {
     return (
-      <TextButton size={size}>
+      <TextButton size={size} color={color}>
         {startIcon && <Icon icon={startIcon} />}
         {children}
         {endIcon && <Icon icon={endIcon} />}
@@ -108,7 +179,7 @@ const Button = ({
 
   if (variant === "outline") {
     return (
-      <OutlineButton size={size}>
+      <OutlineButton size={size} color={color}>
         {startIcon && <Icon icon={startIcon} />}
         {children}
         {endIcon && <Icon icon={endIcon} />}
@@ -121,6 +192,7 @@ const Button = ({
       disableShadow={disableShadow}
       disabled={disabled}
       size={size}
+      color={color}
     >
       {startIcon && <Icon icon={startIcon} />}
       {children}
