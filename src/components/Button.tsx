@@ -7,9 +7,8 @@ const BaseButton = styled("button", {
   gridAutoFlow: "column",
   alignItems: "center",
   gap: 4,
-  padding: "16px 24px",
+  padding: "0.85em 1.35em",
   border: "none",
-  fontSize: "18px",
   color: "$gray_darkest",
   borderRadius: "8px",
   transition: "background 0.15s ease-in",
@@ -23,6 +22,20 @@ const BaseButton = styled("button", {
   "& svg": {
     width: "1.15em",
     height: "1.15em"
+  },
+
+  variants: {
+    size: {
+      sm: {
+        fontSize: "16px"
+      },
+      md: {
+        fontSize: "18px"
+      },
+      lg: {
+        fontSize: "20px"
+      }
+    }
   }
 });
 
@@ -53,16 +66,6 @@ const TextButton = styled(BaseButton, {
     "&:not([disabled])": {
       background: "#0067F933"
     }
-  },
-
-  variants: {
-    disabled: {
-      true: {
-        "&:hover, &:focus": {
-          background: "transparent"
-        }
-      }
-    }
   }
 });
 
@@ -81,6 +84,7 @@ type Props = {
   disabled?: boolean;
   startIcon?: keyof IconsLibrary;
   endIcon?: keyof IconsLibrary;
+  size?: "sm" | "md" | "lg";
 };
 
 const Button = ({
@@ -89,11 +93,12 @@ const Button = ({
   disableShadow = false,
   disabled = false,
   startIcon,
-  endIcon
+  endIcon,
+  size = "md"
 }: Props): JSX.Element => {
   if (variant === "text") {
     return (
-      <TextButton>
+      <TextButton size={size}>
         {startIcon && <Icon icon={startIcon} />}
         {children}
         {endIcon && <Icon icon={endIcon} />}
@@ -103,7 +108,7 @@ const Button = ({
 
   if (variant === "outline") {
     return (
-      <OutlineButton>
+      <OutlineButton size={size}>
         {startIcon && <Icon icon={startIcon} />}
         {children}
         {endIcon && <Icon icon={endIcon} />}
@@ -112,7 +117,11 @@ const Button = ({
   }
 
   return (
-    <DefaultButton disableShadow={disableShadow} disabled={disabled}>
+    <DefaultButton
+      disableShadow={disableShadow}
+      disabled={disabled}
+      size={size}
+    >
       {startIcon && <Icon icon={startIcon} />}
       {children}
       {endIcon && <Icon icon={endIcon} />}

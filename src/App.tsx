@@ -58,6 +58,21 @@ const App = (): JSX.Element => {
           <Button endIcon="rocket" />
         </div>
       </Column>
+
+      <Column>
+        <div>
+          <Text>{'<Button size="sm" />'}</Text>
+          <Button size="sm" />
+        </div>
+        <div>
+          <Text>{'<Button size="md" />'}</Text>
+          <Button size="md" />
+        </div>
+        <div>
+          <Text>{'<Button size="lg" />'}</Text>
+          <Button size="lg" />
+        </div>
+      </Column>
     </Container>
   );
 };
