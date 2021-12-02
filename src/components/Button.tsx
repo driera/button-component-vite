@@ -1,8 +1,13 @@
 import { styled } from "../theme";
+import Icon from "./Icon";
+import { IconsLibrary } from "./icons/iconsLibrary";
 
 const BaseButton = styled("button", {
-  display: "block",
-  padding: "16px 32px",
+  display: "grid",
+  gridAutoFlow: "column",
+  alignItems: "center",
+  gap: 4,
+  padding: "16px 24px",
   border: "none",
   fontSize: "18px",
   color: "$gray_darkest",
@@ -13,6 +18,11 @@ const BaseButton = styled("button", {
   "&[disabled]": {
     color: "$gray_medium",
     cursor: "not-allowed"
+  },
+
+  "& svg": {
+    width: "1.15em",
+    height: "1.15em"
   }
 });
 
@@ -69,25 +79,43 @@ type Props = {
   variant?: "outline" | "text" | undefined;
   disableShadow?: boolean;
   disabled?: boolean;
+  startIcon?: keyof IconsLibrary;
+  endIcon?: keyof IconsLibrary;
 };
 
 const Button = ({
   children = "Button",
   variant,
   disableShadow = false,
-  disabled = false
+  disabled = false,
+  startIcon,
+  endIcon
 }: Props): JSX.Element => {
   if (variant === "text") {
-    return <TextButton>{children}</TextButton>;
+    return (
+      <TextButton>
+        {startIcon && <Icon icon={startIcon} />}
+        {children}
+        {endIcon && <Icon icon={endIcon} />}
+      </TextButton>
+    );
   }
 
   if (variant === "outline") {
-    return <OutlineButton>{children}</OutlineButton>;
+    return (
+      <OutlineButton>
+        {startIcon && <Icon icon={startIcon} />}
+        {children}
+        {endIcon && <Icon icon={endIcon} />}
+      </OutlineButton>
+    );
   }
 
   return (
     <DefaultButton disableShadow={disableShadow} disabled={disabled}>
+      {startIcon && <Icon icon={startIcon} />}
       {children}
+      {endIcon && <Icon icon={endIcon} />}
     </DefaultButton>
   );
 };

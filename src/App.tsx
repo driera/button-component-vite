@@ -10,6 +10,12 @@ const Container = styled("div", {
   gap: 80
 });
 
+const Column = styled("div", {
+  display: "grid",
+  gridAutoFlow: "column",
+  gap: 80
+});
+
 const Text = styled("p", {
   marginBottom: "1.5em"
 });
@@ -20,18 +26,20 @@ const App = (): JSX.Element => {
   return (
     <Container>
       <h1>Button component</h1>
-      <div>
-        <Text>&lt;Button /&gt;</Text>
-        <Button />
-      </div>
-      <div>
-        <Text>{'<Button variant="outline" />'}</Text>
-        <Button variant="outline" />
-      </div>
-      <div>
-        <Text>{'<Button variant="text" />'}</Text>
-        <Button variant="text" />
-      </div>
+      <Column>
+        <div>
+          <Text>&lt;Button /&gt;</Text>
+          <Button />
+        </div>
+        <div>
+          <Text>{'<Button variant="outline" />'}</Text>
+          <Button variant="outline" />
+        </div>
+        <div>
+          <Text>{'<Button variant="text" />'}</Text>
+          <Button variant="text" />
+        </div>
+      </Column>
       <div>
         <Text>{"<Button disableShadow />"}</Text>
         <Button disableShadow />
@@ -40,6 +48,16 @@ const App = (): JSX.Element => {
         <Text>{"<Button disabled />"}</Text>
         <Button disabled />
       </div>
+      <Column>
+        <div>
+          <Text>{'<Button startIcon="anchor" />'}</Text>
+          <Button startIcon="anchor" />
+        </div>
+        <div>
+          <Text>{'<Button endIcon="rocket" />'}</Text>
+          <Button endIcon="rocket" />
+        </div>
+      </Column>
     </Container>
   );
 };

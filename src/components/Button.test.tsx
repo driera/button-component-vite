@@ -15,4 +15,11 @@ describe("button", () => {
     const defaultButton = screen.getByRole("button", { name: /button/i });
     expect(defaultButton).toBeDisabled();
   });
+
+  it("can have icons", () => {
+    render(<Button startIcon="anchor" />);
+
+    const anchorIcon = screen.getByRole("img", { name: "anchor" });
+    expect(anchorIcon).toBeInTheDocument();
+  });
 });
