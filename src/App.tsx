@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { styled } from "@stitches/react";
 import globalStyles from "./theme/globalStyles";
+import "../node_modules/@driera/wee-components/dist/style.css";
 
 const Container = styled("div", {
   display: "grid",
@@ -31,66 +32,80 @@ const App = (): JSX.Element => {
       <Column>
         <div>
           <Text>&lt;Button /&gt;</Text>
-          <Button color="primary" />
+          <Button color="primary">Button</Button>
         </div>
         <div>
           <Text>{'<Button variant="outline" />'}</Text>
-          <Button variant="outline" color="primary" />
+          <Button variant="outline" color="primary">
+            Button
+          </Button>
         </div>
         <div>
           <Text>{'<Button variant="text" />'}</Text>
-          <Button variant="text" color="primary" />
+          <Button variant="text" color="primary">
+            Button
+          </Button>
         </div>
       </Column>
       <div>
         <Text>{"<Button disableShadow />"}</Text>
-        <Button disableShadow />
+        <Button disableShadow>Button</Button>
       </div>
       <div>
         <Text>{"<Button disabled />"}</Text>
-        <Button disabled />
+        <Button disabled>Button</Button>
       </div>
       <Column>
         <div>
           <Text>{'<Button startIcon="anchor" />'}</Text>
-          <Button startIcon="anchor" color="primary" />
+          <Button startIcon="anchor" color="primary">
+            Button
+          </Button>
         </div>
         <div>
           <Text>{'<Button endIcon="rocket" />'}</Text>
-          <Button endIcon="rocket" color="danger" />
+          <Button endIcon="rocket" color="danger">
+            Button
+          </Button>
         </div>
       </Column>
 
       <Column>
         <div>
           <Text>{'<Button size="sm" />'}</Text>
-          <Button size="sm" color="secondary" />
+          <Button size="sm" color="primary">
+            Button
+          </Button>
         </div>
         <div>
           <Text>{'<Button size="md" />'}</Text>
-          <Button size="md" color="secondary" />
+          <Button size="md" color="primary">
+            Button
+          </Button>
         </div>
         <div>
           <Text>{'<Button size="lg" />'}</Text>
-          <Button size="lg" color="secondary" />
+          <Button size="lg" color="primary">
+            Button
+          </Button>
         </div>
       </Column>
       <Column>
         <div>
           <Text>{'<Button color="default" />'}</Text>
-          <Button color="default" />
+          <Button color="default">Button</Button>
         </div>
         <div>
           <Text>{'<Button color="primary" />'}</Text>
-          <Button color="primary" />
+          <Button color="primary">Button</Button>
         </div>
         <div>
           <Text>{'<Button color="secondary" />'}</Text>
-          <Button color="secondary" />
+          <Button color="secondary">Button</Button>
         </div>
         <div>
           <Text>{'<Button color="danger" />'}</Text>
-          <Button color="danger" />
+          <Button color="danger">Button</Button>
         </div>
       </Column>
     </Container>

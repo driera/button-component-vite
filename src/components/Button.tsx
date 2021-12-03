@@ -146,8 +146,7 @@ const OutlineButton = styled(TextButton, {
   }
 });
 
-type Props = {
-  children?: string;
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "outline" | "text" | undefined;
   disableShadow?: boolean;
   disabled?: boolean;
@@ -158,18 +157,19 @@ type Props = {
 };
 
 const Button = ({
-  children = "Button",
   variant,
   disableShadow = false,
   disabled = false,
   startIcon,
   endIcon,
   size = "md",
-  color = "default"
+  color = "default",
+  children,
+  ...rest
 }: Props): JSX.Element => {
   if (variant === "text") {
     return (
-      <TextButton size={size} color={color}>
+      <TextButton size={size} color={color} {...rest}>
         {startIcon && <Icon icon={startIcon} />}
         {children}
         {endIcon && <Icon icon={endIcon} />}
@@ -179,7 +179,7 @@ const Button = ({
 
   if (variant === "outline") {
     return (
-      <OutlineButton size={size} color={color}>
+      <OutlineButton size={size} color={color} {...rest}>
         {startIcon && <Icon icon={startIcon} />}
         {children}
         {endIcon && <Icon icon={endIcon} />}
@@ -193,6 +193,7 @@ const Button = ({
       disabled={disabled}
       size={size}
       color={color}
+      {...rest}
     >
       {startIcon && <Icon icon={startIcon} />}
       {children}
