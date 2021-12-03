@@ -1,7 +1,6 @@
 import Button from "@/components/Button";
 import { styled } from "@stitches/react";
 import globalStyles from "./theme/globalStyles";
-import "../node_modules/@driera/wee-components/dist/style.css";
 
 const Container = styled("div", {
   display: "grid",
