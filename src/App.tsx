@@ -31,7 +31,11 @@ const Text = styled("p", {
 const SmallText = styled("p", {
   fontSize: "12px",
   color: "$gray_dark",
-  textAlign: "center"
+  textAlign: "center",
+
+  a: {
+    color: "$primary"
+  }
 });
 
 const App = (): JSX.Element => {
